@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 5 Report - Pranav Kale</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 14mm 10mm 14mm;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.35;
+      color: #1e293b;
+      background: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #4f46e5;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 18pt;
+      color: #4338ca;
+      margin-bottom: 4px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+    .header h2 {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+    .student-info {
+      font-size: 9.5pt;
+      color: #334155;
+      background: #eef2ff;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid #c7d2fe;
+    }
+    .student-info span {
+      font-weight: 700;
+      color: #4338ca;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 11.5pt;
+      color: #4338ca;
+      border-left: 3.5px solid #4f46e5;
+      padding-left: 8px;
+      margin: 18px 0 10px 0;
+      font-weight: 700;
+    }
+
+    p { margin-bottom: 8px; color: #334155; }
+
+    /* Highlights & Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-add { background: #dbeafe; color: #1e40af; }
+    .badge-done { background: #dcfce7; color: #15803d; }
+    .badge-del { background: #fee2e2; color: #b91c1c; }
+    .badge-test { background: #ecfdf5; color: #047857; }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .card h3 {
+      font-size: 9.5pt;
+      color: #4338ca;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      overflow-x: auto;
+      margin: 8px 0 12px 0;
+    }
+    code {
+      font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+      font-size: 8.5pt;
+      background: #f1f5f9;
+      color: #4338ca;
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 8.5pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #4338ca;
+      font-weight: 700;
+    }
+    tr:nth-child(even) { background: #f8fafc; }
+
+    /* Footer */
+    .footer {
+      margin-top: 24px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      font-size: 8pt;
+      color: #64748b;
+    }
+
+    /* Screenshots */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 14px 0 20px 0;
+    }
+    .screenshot-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+    }
+    .screenshot-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      display: block;
+    }
+    .screenshot-caption {
+      font-size: 8pt;
+      color: #334155;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; padding: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Assignment 5 – Interactive Todo List</h1>
+      <h2>StatefulWidget & setState State Management • Add, Delete, & Mark-Complete</h2>
+      <div class="student-info">
+        Student: <span>Pranav Kale</span> &nbsp;|&nbsp;
+        Roll No: <span>150096724142</span> &nbsp;|&nbsp;
+        Course: <span>Flutter Application Development (BTech CSE)</span>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-title">1. Assignment Overview</div>
+    <p>
+      This assignment requires building a fully functional, interactive <strong>Todo List</strong> in Flutter by mastering <strong><code>StatefulWidget</code></strong> and <strong><code>setState()</code></strong>. The app provides a reactive user experience supporting adding tasks with modal bottom sheet validation, marking tasks as completed with strikethrough styling, deleting tasks via swipe or button with undo support, priority levels, categories, and real-time completion progress tracking.
+    </p>
+
+    <!-- Operation Grid -->
+    <div class="card-grid">
+      <div class="card">
+        <h3><span class="badge badge-add">Add</span> Task Creation</h3>
+        <p>Opens a modal bottom sheet with required title validation, optional description, priority chips (Low, Med, High), and category tags. Inserts into the state list via <code>setState()</code>.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge badge-done">Toggle</span> Mark-Complete</h3>
+        <p>Tapping the custom checkbox mutates the task's <code>isCompleted</code> flag via <code>copyWith()</code>, animating strike-through styling and updating the progress bar.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge badge-del">Delete</span> Swipe & Undo</h3>
+        <p>Uses <code>Dismissible</code> for swipe-to-delete and explicit icon buttons. Triggers a floating <code>SnackBar</code> with an <code>UNDO</code> action to restore deleted tasks.</p>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-title">2. Architecture & State Flow</div>
+    <pre>
+┌────────────────────────────────────────────────────────┐
+│                   TodoListScreen                       │
+│              (StatefulWidget & State)                  │
+│                                                        │
+│  State Variables:                                      │
+│  • List&lt;TodoItem&gt; _todos                               │
+│  • TodoFilter _currentFilter                           │
+│  • String _searchQuery                                 │
+└───────────────────────────┬────────────────────────────┘
+                            │
+      ┌─────────────────────┼─────────────────────┐
+      ▼                     ▼                     ▼
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│     _addTodo     │  │ _toggleComplete  │  │   _deleteTodo    │
+│                  │  │                  │  │                  │
+│ setState(() {    │  │ setState(() {    │  │ setState(() {    │
+│  _todos.insert(  │  │  _todos[idx] =   │  │  _todos.removeAt │
+│   0, newItem);   │  │   t.copyWith(..);│  │  );              │
+│ });              │  │ });              │  │ }); + Undo bar   │
+└──────────────────┘  └──────────────────┘  └──────────────────┘
+                            │
+                            ▼ Triggers Framework Rebuild
+┌────────────────────────────────────────────────────────┐
+│                    UI Components                       │
+│  • TodoStatsCard (Linear progress & completion counts) │
+│  • Search Field & FilterBar (All / Pending / Done)     │
+│  • ListView with Dismissible TodoTile widgets          │
+│  • FloatingActionButton -&gt; AddTodoSheet                │
+└────────────────────────────────────────────────────────┘
+    </pre>
+
+    <!-- Section 3 -->
+    <div class="section-title">3. Key Implementation Code</div>
+
+    <p><strong>A. Adding a Task via <code>setState()</code>:</strong></p>
+    <pre><code class="language-dart">void _addTodo(TodoItem item) {
+  setState(() {
+    _todos.insert(0, item);
+  });
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Added task "${item.title}"')),
+  );
+}</code></pre>
+
+    <p><strong>B. Toggling Completion with Immutable <code>copyWith()</code>:</strong></p>
+    <pre><code class="language-dart">void _toggleTodoComplete(String id, bool? isCompleted) {
+  final index = _todos.indexWhere((t) =&gt; t.id == id);
+  if (index != -1) {
+    setState(() {
+      _todos[index] = _todos[index].copyWith(
+        isCompleted: isCompleted ?? !_todos[index].isCompleted,
+      );
+    });
+  }
+}</code></pre>
+
+    <p><strong>C. Deleting with Undo Restoration:</strong></p>
+    <pre><code class="language-dart">void _deleteTodo(String id) {
+  final index = _todos.indexWhere((t) =&gt; t.id == id);
+  if (index == -1) return;
+  final removed = _todos[index];
+  setState(() {
+    _todos.removeAt(index);
+  });
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text('Deleted "${removed.title}"'),
+      action: SnackBarAction(
+        label: 'UNDO',
+        onPressed: () {
+          setState(() {
+            _todos.insert(index, removed);
+          });
+        },
+      ),
+    ),
+  );
+}</code></pre>
+
+    <!-- Section 4 -->
+    <div class="section-title">4. Visual Verification & Output Screenshots</div>
+    <p>The application was run and validated in Google Chrome (<code>flutter run -d chrome</code>). The screenshots below demonstrate task addition, progress calculation, completion toggling, and tab filtering:</p>
+
+    <div class="screenshot-grid">
+      <div class="screenshot-card">
+        <img src="screenshots/screenshot_all_tasks.png" alt="All Tasks View">
+        <div class="screenshot-caption">Fig 1: All Tasks View (1 of 4 Completed, 25% Progress, Strikethrough)</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="screenshots/screenshot_add_sheet.png" alt="Add Task Modal Sheet">
+        <div class="screenshot-caption">Fig 2: Add New Task Form (Priority & Category Choice Chips)</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="screenshots/screenshot_pending_tasks.png" alt="Pending Tasks View">
+        <div class="screenshot-caption">Fig 3: Pending Tasks Tab (3 Active Tasks, 2 of 5 Completed, 40%)</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="screenshots/screenshot_completed_tasks.png" alt="Completed Tasks View">
+        <div class="screenshot-caption">Fig 4: Done Tasks Tab (2 Completed Tasks, Strikethrough Titles)</div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-title">5. Challenges Faced & Solutions</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 32%;">Challenge</th>
+          <th>Technical Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Predictable State Mutation</strong></td>
+          <td>Mutating list items in-place can cause subtle bugs where widgets don't redraw. Ensured <code>TodoItem</code> is immutable and utilized <code>copyWith()</code> inside <code>setState()</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Dismissible Key Duplication</strong></td>
+          <td>Using raw index keys in <code>Dismissible</code> widgets causes tree collision errors upon item deletion. Enforced globally unique keys (<code>ValueKey(todo.id)</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>Keyboard Insets in Bottom Sheet</strong></td>
+          <td>The software keyboard can obscure submit buttons in modal sheets. Resolved by applying <code>MediaQuery.of(context).viewInsets.bottom</code> as bottom padding.</td>
+        </tr>
+        <tr>
+          <td><strong>Restoring Original Index on Undo</strong></td>
+          <td>Simply appending an undone item places it at the bottom. Preserved the exact removal index to re-insert the item cleanly with <code>_todos.insert(index, removed)</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 6 -->
+    <div class="section-title">6. Automated Test Results</div>
+    <p>The solution includes <strong>9 automated test cases</strong> passing with 100% success:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Test File</th>
+          <th>Test Description</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>todo_model_test.dart</code></td>
+          <td>Initializes with expected default values</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>todo_model_test.dart</code></td>
+          <td><code>copyWith</code> updates fields while preserving unedited values</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>todo_model_test.dart</code></td>
+          <td><code>formattedDate</code> produces formatted day, month, and time</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>todo_model_test.dart</code></td>
+          <td>Equality and hashCode verify value semantics</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>widget_test.dart</code></td>
+          <td>Renders initial tasks and progress summary accurately</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>widget_test.dart</code></td>
+          <td>Toggling task completion updates checkbox and completion stats</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>widget_test.dart</code></td>
+          <td>Adding a new task via <code>AddTodoSheet</code> inserts it into state</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>widget_test.dart</code></td>
+          <td>Deleting a task removes it from state with working undo action</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+        <tr>
+          <td><code>widget_test.dart</code></td>
+          <td>Filter tabs switch between All, Pending, and Completed tasks</td>
+          <td><span class="badge badge-test">PASS</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 7 -->
+    <div class="section-title">7. Static Analysis & Lints</div>
+    <p>
+      Ran <code>flutter analyze</code>: <strong>0 errors, 0 warnings, 0 lints</strong>. Adheres strictly to Flutter recommended practices and Material 3 design guidelines.
+    </p>
+
+    <!-- Footer -->
+    <div class="footer">
+      Assignment 5 Report • Pranav Kale (150096724142) • Flutter Application Development • BTech CSE 2024-28
+    </div>
+  </div>
+</body>
+</html>
